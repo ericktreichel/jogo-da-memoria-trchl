@@ -1,0 +1,205 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  /* background-color: rgb(82, 137, 45); */
+  background: linear-gradient(
+    -45deg,
+    rgb(16, 57, 70),
+    #1f2e4f,
+    #28463d,
+    #37682b
+  );
+  background-size: 400% 400%;
+  animation: backgroundTransition 7s ease-in-out infinite;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  /* background-color: rgb(84, 167, 195); */
+  background-color: rgb(203, 196, 196);
+  border-radius: 8px;
+}
+
+.title {
+  margin: auto;
+  margin-top: 85px;
+  margin-bottom: 85px;
+  padding: 5px;
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  color: rgb(145, 249, 214);
+  text-shadow: 0px 0px 3px #01bb01;
+  cursor: context-menu;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  /* background-color: rgb(3, 60, 56); */
+  background: linear-gradient(
+    -45deg,
+    rgb(16, 57, 70),
+    #1f2e4f,
+    #375e65,
+    #255247
+  );
+  background-size: 500% 500%;
+  animation: backgroundTransition 12s ease-in-out infinite;
+
+  padding: 7px 15px;
+}
+
+.memory-game {
+  height: 740px;
+  width: 780px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.card {
+  height: calc(33.333% - 10px);
+  width: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 2px 1px 1px rgba(1, 1, 1, 0.4);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d; /* não deixa o elemento achatado no plano */
+  transition: transform 0.9s;
+  border-radius: 9px;
+}
+
+.card:active {
+  transform: scale(0.95);
+  transition: transform 0.3s;
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  position: absolute;
+  border-radius: 9px;
+  background-color: rgb(151, 211, 211);
+
+  backface-visibility: hidden; /* essencial pra retirar o verso do elemento, e mostra a outra imagem */
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+/* Flip card Animation: */
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.refresh {
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  display: flex;
+}
+
+.refresh-button {
+  margin-top: 0px;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-color: #848484;
+  border-radius: 5px;
+  padding: 10px;
+  display: block;
+  background-color: rgb(160, 159, 159);
+  font-family: "IBM Plex Mono", monospace;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+}
+
+.refresh:hover {
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  display: flex;
+}
+
+.refresh-button:hover {
+  margin-top: 0px;
+  font-size: 2rem;
+  color: rgb(58, 58, 58);
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-color: #848484;
+  border-radius: 5px;
+  padding: 10px;
+  display: block;
+  background-color: rgb(224, 224, 224);
+  font-family: "IBM Plex Mono", monospace;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  justify-self: center;
+}
+
+@media (max-width: 1050px) {
+  .title {
+    margin: 40px 0;
+    padding: 0px;
+    text-align: center;
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+    color: rgb(145, 249, 214);
+  }
+
+  .refresh {
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+  }
+
+  .memory-game {
+    height: 600px;
+    width: 620px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+  }
+}
+
+@keyframes backgroundTransition {
+  0% {
+    background-position: 0% 80%;
+  }
+  50% {
+    background-position: 80% 100%;
+  }
+  100% {
+    background-position: 0% 90%;
+  }
+}
